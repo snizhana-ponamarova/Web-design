@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Реєстрація — TimeFlow</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body{ font-family: Manrope, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+  </style>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+  <header class="sticky-header">
+    <div class="glass">
+      <div class="max-w-6xl mx-auto px-4 py-5 flex items-center justify-between gap-4">
+
+        <!-- Логотип -->
+        <a href="./index.html" class="flex items-center gap-3 shrink-0">
+          <img src="./assets/logo.svg" alt="TimeFlow" class="w-10 h-10" />
+          <div class="leading-tight">
+            <div class="font-extrabold tracking-tight text-lg">TimeFlow</div>
+            <div class="text-sm opacity-70">Облік робочого часу</div>
+          </div>
+        </a>
+
+        <!-- Навігація -->
+        <nav class="hidden md:flex items-center gap-2 justify-center flex-1">
+          <a class="nav-pill" href="./index.html">Головна</a>
+          <a class="nav-pill" href="./about.html">Про додаток</a>
+        </nav>
+
+        <div class="hidden md:flex items-center gap-2 justify-end shrink-0">
+          <a class="btn px-4 py-2 text-sm font-semibold" href="./login.html">Вхід</a>
+        </div>
+
+        <button id="burgerBtn" type="button" class="md:hidden btn px-3 py-2" aria-label="Відкрити меню" aria-controls="mobileMenu" aria-expanded="false">☰</button>
+      </div>
+
+      <!-- Мобільне меню -->
+      <div id="mobileMenu" class="md:hidden hidden">
+        <div class="max-w-6xl mx-auto px-4 pb-5">
+          <div class="soft-box p-4">
+            <div class="flex items-center justify-between gap-3">
+              <div class="font-extrabold">Меню</div>
+              <button id="burgerClose" type="button" class="btn px-3 py-2" aria-label="Закрити меню">✕</button>
+            </div>
+
+            <div class="mt-4 grid gap-2">
+              <a class="nav-pill" href="./index.html">Головна</a>
+              <a class="nav-pill" href="./about.html">Про додаток</a>
+            </div>
+
+            <div class="mt-4 grid gap-2">
+              <a class="btn px-4 py-2 text-sm font-semibold text-center" href="./login.html">Вхід</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Основне -->
+  <main class="flex-1">
+    <section class="max-w-6xl mx-auto px-4 py-10">
+
+      <div class="max-w-2xl mx-auto section-card p-6 sm:p-8">
+        <div class="label">Створення акаунта</div>
+        <h1 class="text-3xl font-extrabold mt-2">Реєстрація</h1>
+
+        <form class="mt-6 grid sm:grid-cols-2 gap-4">
+
+          <div class="sm:col-span-2">
+            <label class="text-sm font-semibold" style="color: var(--muted);">Імʼя</label>
+            <input class="input w-full mt-2 px-4 py-3 rounded-2xl" placeholder="Напр., Сніжана" type="text" />
+          </div>
+
+          <div class="sm:col-span-2">
+            <label class="text-sm font-semibold" style="color: var(--muted);">Email</label>
+            <input class="input w-full mt-2 px-4 py-3 rounded-2xl" placeholder="name@example.com" type="email" />
+          </div>
+
+          <div>
+            <label class="text-sm font-semibold" style="color: var(--muted);">Стать</label>
+            <select class="input w-full mt-2 px-4 py-3 rounded-2xl">
+              <option>Жіноча</option>
+              <option>Чоловіча</option>
+              <option>Інше / Не вказувати</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="text-sm font-semibold" style="color: var(--muted);">Дата народження</label>
+            <input class="input w-full mt-2 px-4 py-3 rounded-2xl" type="date" />
+          </div>
+
+          <div class="sm:col-span-2">
+            <label class="text-sm font-semibold" style="color: var(--muted);">Пароль</label>
+            <input class="input w-full mt-2 px-4 py-3 rounded-2xl" placeholder="••••••••" type="password" />
+          </div>
+
+          <div class="sm:col-span-2 mt-2 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-end">
+            <button type="button" class="btn btn-primary px-6 py-3 font-extrabold">Зареєструватися</button>
+          </div>
+
+          <div class="sm:col-span-2 text-center text-sm mt-2" style="color: var(--muted);">
+            Вже є акаунт? <a href="./login.html" class="hover:underline"><b>Увійти</b></a>
+          </div>
+
+        </form>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="mt-auto">
+    <div class="max-w-6xl mx-auto px-4 pb-8">
+      <div class="hr-soft mb-6"></div>
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-sm" style="color: var(--muted);">
+        <div>© 2026 • TimeFlow</div>
+        <div class="flex gap-3">
+          <a href="./index.html" class="hover:underline">Головна</a>
+          <a href="./about.html" class="hover:underline">Про додаток</a>
+          <a href="./login.html" class="hover:underline">Вхід</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Логіка для мобільного меню -->
+  <script>
+    (function () {
+      const btn = document.getElementById('burgerBtn');
+      const closeBtn = document.getElementById('burgerClose');
+      const menu = document.getElementById('mobileMenu');
+      if (!btn || !menu) return;
+
+      function openMenu() { menu.classList.remove('hidden'); btn.setAttribute('aria-expanded','true'); }
+      function closeMenu(){ menu.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); }
+
+      btn.addEventListener('click', () => menu.classList.contains('hidden') ? openMenu() : closeMenu());
+      if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+    })();
+  </script>
+
+</body>
+</html>
