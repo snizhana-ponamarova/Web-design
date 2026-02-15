@@ -1,0 +1,132 @@
+:root{
+  --bg:#ffffff;
+  --text:#0b0b12;
+  --muted:rgba(11,11,18,.65);
+  --line:rgba(11,11,18,.12);
+  --line2:rgba(11,11,18,.08);
+  --soft:rgba(11,11,18,.04);
+}
+
+html, body { height: 100%; }
+body{ background: var(--bg); color: var(--text); }
+
+/* Хедер*/
+.sticky-header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fff;
+}
+.glass{
+  background: rgba(255,255,255,.92);
+  border-bottom: 1px solid var(--line2);
+}
+
+/* Мобільне меню */
+#mobileMenu { padding-bottom: 8px; }
+
+/* Картки та контейнери */
+.section-card{
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+}
+.soft-box{
+  background: #fff;
+  border: 1px solid var(--line2);
+  border-radius: 16px;
+}
+.hr-soft{
+  height: 1px;
+  background: var(--line2);
+}
+
+/* Поля вводу */
+.input{
+  background: #fff;
+  border: 1px solid var(--line);
+  color: var(--text);
+}
+.input::placeholder{ color: rgba(11,11,18,.35); }
+.input:focus{
+  outline: none;
+  border-color: rgba(11,11,18,.25);
+  box-shadow: 0 0 0 4px rgba(11,11,18,.06);
+}
+
+/* Кнопки */
+.btn{
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text);
+  transition: background .15s ease, box-shadow .15s ease, transform .15s ease;
+}
+.btn:hover{ background: rgba(11,11,18,.03); }
+.btn:active{ transform: translateY(1px); }
+
+/* Головна кнопка */
+.btn-primary{
+  background: #0b0b12;
+  color: #fff;
+  border-color: #0b0b12;
+}
+.btn-primary:hover{ background: #11111a; }
+
+/* Навігація */
+.nav-pill{
+  padding: .55rem .85rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  color: rgba(11,11,18,.75);
+}
+.nav-pill:hover{
+  border-color: var(--line);
+  background: rgba(11,11,18,.03);
+  color: var(--text);
+}
+.nav-active{
+  border-color: var(--line);
+  background: rgba(11,11,18,.04);
+  color: var(--text);
+}
+
+/* Мітки та підписи */
+.label{
+  display:inline-block;
+  font-size:12px;
+  color: rgba(11,11,18,.55);
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+
+/* Таблиця */
+.table-soft{
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.table-soft th,
+.table-soft td{
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--line2);
+  font-size: 14px;
+  line-height: 1.4;
+  vertical-align: middle;
+}
+.table-soft th{
+  background: rgba(11,11,18,.03);
+  text-align: left;
+  font-weight: 800;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.table-soft tr:last-child td{ border-bottom: none; }
+
+/* Адаптивність */
+body { min-height: 100svh; }
+img, video { max-width: 100%; height: auto; }
+* { overflow-wrap: anywhere; }
