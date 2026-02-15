@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Трекер — TimeFlow</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body{ font-family: Manrope, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+  </style>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+  <header class="sticky-header">
+    <div class="glass">
+      <div class="max-w-6xl mx-auto px-4 py-5 flex items-center justify-between gap-4">
+
+        <!-- Логотип / Назва -->
+        <a href="./index.html" class="flex items-center gap-3 shrink-0">
+          <img src="./logo.svg" alt="TimeFlow" class="w-10 h-10" />
+          <div class="leading-tight">
+            <div class="font-extrabold tracking-tight text-lg">TimeFlow</div>
+            <div class="text-sm opacity-70">Облік робочого часу</div>
+          </div>
+        </a>
+
+        <!-- Навігація -->
+        <nav class="hidden md:flex items-center gap-2 justify-center flex-1">
+          <a class="nav-pill" href="./index.html">Головна</a>
+          <a class="nav-pill" href="./about.html">Про додаток</a>
+          <a class="nav-pill nav-active" href="./tracker.html">Трекер</a>
+          <a class="nav-pill" href="./profile.html">Профіль</a>
+        </nav>
+
+        <div class="hidden md:flex items-center gap-2 justify-end shrink-0">
+          <a class="btn px-4 py-2 text-sm font-semibold" href="./login.html">Вхід</a>
+          <a class="btn btn-primary px-4 py-2 text-sm font-extrabold" href="./register.html">Реєстрація</a>
+        </div>
+
+        <button id="burgerBtn" type="button" class="md:hidden btn px-3 py-2" aria-label="Відкрити меню" aria-controls="mobileMenu" aria-expanded="false">☰</button>
+      </div>
+
+      <!-- Мобільне меню -->
+      <div id="mobileMenu" class="md:hidden hidden">
+        <div class="max-w-6xl mx-auto px-4 pb-5">
+          <div class="soft-box p-4">
+            <div class="flex items-center justify-between gap-3">
+              <div class="font-extrabold">Меню</div>
+              <button id="burgerClose" type="button" class="btn px-3 py-2" aria-label="Закрити меню">✕</button>
+            </div>
+
+            <div class="mt-4 grid gap-2">
+              <a class="nav-pill" href="./index.html">Головна</a>
+              <a class="nav-pill" href="./about.html">Про додаток</a>
+              <a class="nav-pill nav-active" href="./tracker.html">Трекер</a>
+              <a class="nav-pill" href="./profile.html">Профіль</a>
+            </div>
+
+            <div class="mt-4 grid grid-cols-2 gap-2">
+              <a class="btn px-4 py-2 text-sm font-semibold text-center" href="./login.html">Вхід</a>
+              <a class="btn btn-primary px-4 py-2 text-sm font-extrabold text-center" href="./register.html">Реєстрація</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Основне -->
+  <main class="flex-1">
+    <section class="max-w-6xl mx-auto px-4 py-8 sm:py-10">
+
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-3">
+        <div>
+          <div class="label">Робочі сесії</div>
+          <h1 class="text-3xl sm:text-4xl font-extrabold mt-2">Трекер</h1>
+          <p class="mt-2 sm:mt-3 text-sm sm:text-base" style="color: var(--muted);">
+            Стартуй, став на паузу, продовжуй та зупиняй сесію. Історія нижче.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-6 sm:mt-8 grid gap-6">
+
+        <div class="section-card p-5 sm:p-8">
+          <div class="label">Керування</div>
+          <h2 class="text-xl sm:text-2xl font-extrabold mt-2">Панель сесії</h2>
+
+          <div class="mt-5">
+            <label class="text-sm font-semibold" style="color: var(--muted);">Назва сесії</label>
+            <input
+              class="input w-full mt-2 px-4 py-3 rounded-2xl"
+              type="text"
+              placeholder="Напр., Практика • SQL"
+            />
+          </div>
+
+          <div class="mt-4 grid grid-cols-2 gap-3">
+            <div class="soft-box p-4">
+              <div class="label">Початок</div>
+              <div class="text-base sm:text-lg font-extrabold mt-1">—</div>
+            </div>
+            <div class="soft-box p-4">
+              <div class="label">Завершення</div>
+              <div class="text-base sm:text-lg font-extrabold mt-1">—</div>
+            </div>
+          </div>
+
+          <div class="mt-4 soft-box p-5 sm:p-6">
+            <div class="label">Таймер</div>
+            <div class="text-4xl sm:text-6xl font-extrabold mt-2 tracking-tight">00:00:00</div>
+
+            <div class="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-5">
+              <button type="button" class="btn py-3 font-semibold">Старт</button>
+              <button type="button" class="btn py-3 font-semibold">Пауза</button>
+              <button type="button" class="btn py-3 font-semibold">Продовжити</button>
+
+              <button type="button" class="btn btn-primary py-3 font-extrabold col-span-2 sm:col-span-1">
+                Стоп
+              </button>
+
+              <button type="button" class="btn py-3 font-semibold col-span-2 sm:col-span-1">
+                Скасувати
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-card p-5 sm:p-8">
+          <div class="label">Історія</div>
+          <h2 class="text-xl sm:text-2xl font-extrabold mt-2">Історія сесій</h2>
+
+          <!-- Мобільна версія історії -->
+          <div class="mt-5 grid gap-3 md:hidden">
+            <div class="soft-box p-4">
+              <div class="flex items-center justify-between gap-3">
+                <div class="font-extrabold">Математика</div>
+                <div class="text-sm font-semibold">01:05</div>
+              </div>
+              <div class="mt-2 text-sm" style="color: var(--muted);">18:00 → 19:05</div>
+            </div>
+
+            <div class="soft-box p-4">
+              <div class="flex items-center justify-between gap-3">
+                <div class="font-extrabold">Філософія</div>
+                <div class="text-sm font-semibold">00:35</div>
+              </div>
+              <div class="mt-2 text-sm" style="color: var(--muted);">16:10 → 16:45</div>
+            </div>
+
+            <div class="soft-box p-4">
+              <div class="flex items-center justify-between gap-3">
+                <div class="font-extrabold">Спорт</div>
+                <div class="text-sm font-semibold">02:10</div>
+              </div>
+              <div class="mt-2 text-sm" style="color: var(--muted);">14:00 → 16:10</div>
+            </div>
+
+            <div class="soft-box p-4">
+              <div class="flex items-center justify-between gap-3">
+                <div class="font-extrabold">Прибирання</div>
+                <div class="text-sm font-semibold">00:12</div>
+              </div>
+              <div class="mt-2 text-sm" style="color: var(--muted);">12:30 → —</div>
+            </div>
+          </div>
+
+          <!-- Історія десктоп -->
+          <div class="mt-6 overflow-x-auto hidden md:block">
+            <table class="table-soft min-w-[760px]">
+              <thead>
+                <tr>
+                  <th>Назва</th>
+                  <th>Початок</th>
+                  <th>Завершення</th>
+                  <th>Тривалість</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Математика</td><td>18:00</td><td>19:05</td><td>01:05</td></tr>
+                <tr><td>Філософія</td><td>16:10</td><td>16:45</td><td>00:35</td></tr>
+                <tr><td>Спорт</td><td>14:00</td><td>16:10</td><td>02:10</td></tr>
+                <tr><td>Прибирання</td><td>12:30</td><td>—</td><td>00:12</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="mt-auto">
+    <div class="max-w-6xl mx-auto px-4 pb-8">
+      <div class="hr-soft mb-6"></div>
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-sm" style="color: var(--muted);">
+        <div>© 2026 • TimeFlow</div>
+        <div class="flex gap-3">
+          <a href="./index.html" class="hover:underline">Головна</a>
+          <a href="./about.html" class="hover:underline">Про додаток</a>
+          <a href="./profile.html" class="hover:underline">Профіль</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Логіка для мобільного меню -->
+  <script>
+    (function () {
+      const btn = document.getElementById('burgerBtn');
+      const closeBtn = document.getElementById('burgerClose');
+      const menu = document.getElementById('mobileMenu');
+      if (!btn || !menu) return;
+
+      function openMenu() { menu.classList.remove('hidden'); btn.setAttribute('aria-expanded','true'); }
+      function closeMenu(){ menu.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); }
+
+      btn.addEventListener('click', () => menu.classList.contains('hidden') ? openMenu() : closeMenu());
+      if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+    })();
+  </script>
+
+</body>
+</html>
