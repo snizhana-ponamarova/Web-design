@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TimeFlow — Трекер</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body class="bg-light d-flex flex-column min-vh-100">
+
+  <!-- Верхнє меню навігації -->
+  <nav class="navbar navbar-expand-lg header-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="./index.html">
+        <img src="./logo.svg" alt="TimeFlow" width="32" height="32">
+        <span class="fw-bold text-dark">TimeFlow</span>
+      </a>
+
+      <!-- Кнопка меню для телефонів -->
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Меню">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Посилання меню -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link text-dark" href="./index.html">Головна</a></li>
+          <li class="nav-item"><a class="nav-link text-dark" href="./about.html">Про додаток</a></li>
+          <li class="nav-item"><a class="nav-link active text-dark" href="./tracker.html">Трекер</a></li>
+          <li class="nav-item"><a class="nav-link text-dark" href="./profile.html">Профіль</a></li>
+          <li class="nav-item"><a class="nav-link text-dark" href="./login.html">Вхід</a></li>
+          <li class="nav-item ms-lg-2">
+            <a class="btn btn-dark fw-bold" href="./register.html">Реєстрація</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Основне -->
+  <main class="container py-5 flex-grow-1">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10">
+
+        <h1 class="display-6 fw-bold mb-2">Трекер</h1>
+        <p class="text-secondary mb-4">Записуй робочі сесії та переглядай історію.</p>
+
+        <div class="tf-panel">
+
+          <div class="row g-3 align-items-end">
+            <div class="col-12 col-md-7">
+              <label class="form-label fw-semibold">Назва сесії</label>
+              <input type="text" class="form-control" placeholder="Наприклад: Лабораторна #1">
+            </div>
+
+            <div class="col-12 col-md-5">
+              <div class="d-flex gap-2 flex-wrap">
+                <button class="btn btn-dark" type="button">Старт</button>
+                <button class="btn btn-outline-dark" type="button">Пауза</button>
+                <button class="btn btn-outline-dark" type="button">Продовжити</button>
+                <button class="btn btn-danger" type="button">Стоп</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 p-3 border rounded-4 d-flex align-items-center justify-content-between flex-wrap gap-2">
+            <div>
+              <div class="text-secondary small">Поточний час</div>
+              <div class="fs-2 fw-bold">00:00:00</div>
+            </div>
+            <button class="btn btn-light border" type="button">Очистити історію</button>
+          </div>
+
+          <!-- Таблиця історії -->
+          <div class="mt-4 table-responsive">
+            <table class="table align-middle">
+              <thead>
+                <tr>
+                  <th>Сесія</th>
+                  <th>Початок</th>
+                  <th>Кінець</th>
+                  <th>Тривалість</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="fw-semibold">Навчання</td>
+                  <td class="text-secondary">—</td>
+                  <td class="text-secondary">—</td>
+                  <td class="fw-semibold">00:00:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="mt-auto">
+    <div class="container py-3">
+      <hr class="my-0 mb-3">
+      <div class="small text-muted">© 2026 • TimeFlow</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
