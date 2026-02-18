@@ -16,4 +16,4 @@
 - підготувати звіт із скріншотами та структурною схемою сайту.
 
 ## Посилання на звіт (Google Drive)
-- **URL:** https://drive.google.com/________________________
+- **URL:** https://docs.google.com/document/d/1l7rMoUR56us6Dq6eB4OO9P-FeeRB9JqY/edit?usp=sharing&ouid=112731429085870670049&rtpof=true&sd=true
