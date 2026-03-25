@@ -41,3 +41,9 @@ body{
   padding: 1.5rem;
   box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
 }
+
+#loginMessage,
+#registerMessage {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
