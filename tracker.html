@@ -9,9 +9,8 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 
-<body class="bg-light d-flex flex-column min-vh-100">
+<body class="bg-light d-flex flex-column min-vh-100" data-page="tracker">
 
-  <!-- Верхнє меню навігації -->
   <nav class="navbar navbar-expand-lg header-light sticky-top">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2" href="./index.html">
@@ -19,21 +18,26 @@
         <span class="fw-bold text-dark">TimeFlow</span>
       </a>
 
-      <!-- Кнопка меню для телефонів -->
       <button class="navbar-toggler" type="button"
               data-bs-toggle="collapse" data-bs-target="#navbarNav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Меню">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- Посилання меню -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
           <li class="nav-item"><a class="nav-link text-dark" href="./about.html">Про додаток</a></li>
           <li class="nav-item"><a class="nav-link active text-dark" href="./tracker.html">Трекер</a></li>
-          <li class="nav-item"><a class="nav-link text-dark" href="./profile.html">Профіль</a></li>
-          <li class="nav-item"><a class="nav-link text-dark" href="./login.html">Вхід</a></li>
-          <li class="nav-item ms-lg-2">
+
+          <li class="nav-item auth-only" style="display: none;">
+            <a class="nav-link text-dark" href="./profile.html">Профіль</a>
+          </li>
+
+          <li class="nav-item guest-only">
+            <a class="nav-link text-dark" href="./login.html">Вхід</a>
+          </li>
+
+          <li class="nav-item ms-lg-2 guest-only">
             <a class="btn btn-dark fw-bold" href="./register.html">Реєстрація</a>
           </li>
         </ul>
@@ -41,7 +45,6 @@
     </div>
   </nav>
 
-  <!-- Основне -->
   <main class="container py-5 flex-grow-1">
     <div class="row justify-content-center">
       <div class="col-12 col-lg-10">
@@ -53,16 +56,16 @@
 
           <div class="row g-3 align-items-end">
             <div class="col-12 col-md-7">
-              <label class="form-label fw-semibold">Назва сесії</label>
-              <input type="text" class="form-control" placeholder="Наприклад: Лабораторна #1">
+              <label class="form-label fw-semibold" for="sessionName">Назва сесії</label>
+              <input id="sessionName" type="text" class="form-control" placeholder="Наприклад: Лабораторна #1">
             </div>
 
             <div class="col-12 col-md-5">
               <div class="d-flex gap-2 flex-wrap">
-                <button class="btn btn-dark" type="button">Старт</button>
-                <button class="btn btn-outline-dark" type="button">Пауза</button>
-                <button class="btn btn-outline-dark" type="button">Продовжити</button>
-                <button class="btn btn-danger" type="button">Стоп</button>
+                <button id="startBtn" class="btn btn-dark" type="button">Старт</button>
+                <button id="pauseBtn" class="btn btn-outline-dark" type="button">Пауза</button>
+                <button id="resumeBtn" class="btn btn-outline-dark" type="button">Продовжити</button>
+                <button id="stopBtn" class="btn btn-danger" type="button">Стоп</button>
               </div>
             </div>
           </div>
@@ -70,12 +73,11 @@
           <div class="mt-4 p-3 border rounded-4 d-flex align-items-center justify-content-between flex-wrap gap-2">
             <div>
               <div class="text-secondary small">Поточний час</div>
-              <div class="fs-2 fw-bold">00:00:00</div>
+              <div class="fs-2 fw-bold" id="timerDisplay">00:00:00</div>
             </div>
-            <button class="btn btn-light border" type="button">Очистити історію</button>
+            <button id="clearHistoryBtn" class="btn btn-light border" type="button">Очистити історію</button>
           </div>
 
-          <!-- Таблиця історії -->
           <div class="mt-4 table-responsive">
             <table class="table align-middle">
               <thead>
@@ -86,9 +88,9 @@
                   <th>Тривалість</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="sessionsBody">
                 <tr>
-                  <td class="fw-semibold">Навчання</td>
+                  <td class="fw-semibold">Немає сесій</td>
                   <td class="text-secondary">—</td>
                   <td class="text-secondary">—</td>
                   <td class="fw-semibold">00:00:00</td>
@@ -111,5 +113,14 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="./js/models/storage.model.js"></script>
+  <script src="./js/models/tracker.model.js"></script>
+
+  <script src="./js/views/navbar.view.js"></script>
+  <script src="./js/views/tracker.view.js"></script>
+
+  <script src="./js/controllers/tracker.controller.js"></script>
+  <script src="./js/controllers/app.controller.js"></script>
 </body>
 </html>
