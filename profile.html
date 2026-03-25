@@ -9,9 +9,8 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 
-<body class="bg-light d-flex flex-column min-vh-100">
+<body class="bg-light d-flex flex-column min-vh-100" data-page="profile">
 
-  <!-- Верхнє меню навігації -->
   <nav class="navbar navbar-expand-lg header-light sticky-top">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2" href="./index.html">
@@ -19,25 +18,26 @@
         <span class="fw-bold text-dark">TimeFlow</span>
       </a>
 
-      <!-- Кнопка меню для телефонів -->
       <button class="navbar-toggler" type="button"
               data-bs-toggle="collapse" data-bs-target="#navbarNav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Меню">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- Посилання меню -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
           <li class="nav-item"><a class="nav-link text-dark" href="./about.html">Про додаток</a></li>
           <li class="nav-item"><a class="nav-link text-dark" href="./tracker.html">Трекер</a></li>
 
-          <li class="nav-item">
+          <li class="nav-item auth-only" style="display: none;">
             <a class="nav-link active text-dark" href="./profile.html" aria-current="page">Профіль</a>
           </li>
 
-          <li class="nav-item"><a class="nav-link text-dark" href="./login.html">Вхід</a></li>
-          <li class="nav-item ms-lg-2">
+          <li class="nav-item guest-only">
+            <a class="nav-link text-dark" href="./login.html">Вхід</a>
+          </li>
+
+          <li class="nav-item ms-lg-2 guest-only">
             <a class="btn btn-dark fw-bold" href="./register.html">Реєстрація</a>
           </li>
         </ul>
@@ -45,7 +45,6 @@
     </div>
   </nav>
 
-  <!-- Основне -->
   <main class="container py-5 flex-grow-1">
     <div class="row justify-content-center">
       <div class="col-12 col-lg-10">
@@ -57,8 +56,8 @@
 
           <div class="col-12 col-lg-4">
             <div class="tf-panel">
-              <div class="fw-bold fs-5 mb-1">Сніжана Понамарьова</div>
-              <div class="text-secondary text-break">snіzhana.ponamarova@gmail.com</div>
+              <div class="fw-bold fs-5 mb-1" id="profileFullName">—</div>
+              <div class="text-secondary text-break" id="profileEmailCard">—</div>
             </div>
           </div>
 
@@ -68,34 +67,34 @@
 
               <div class="d-flex justify-content-between gap-3 py-2 border-bottom">
                 <span class="text-secondary">Ім’я</span>
-                <span class="fw-semibold">Сніжана</span>
+                <span class="fw-semibold" id="profileShortName">—</span>
               </div>
 
               <div class="d-flex justify-content-between gap-3 py-2 border-bottom">
                 <span class="text-secondary">Прізвище</span>
-                <span class="fw-semibold">Понамарьова</span>
+                <span class="fw-semibold" id="profileLastName">—</span>
               </div>
 
               <div class="d-flex justify-content-between gap-3 py-2 border-bottom">
                 <span class="text-secondary">Email</span>
-                <span class="fw-semibold text-break text-end">snіzhana.ponamarova@gmail.com</span>
+                <span class="fw-semibold text-break text-end" id="profileEmail">—</span>
               </div>
 
               <div class="d-flex justify-content-between gap-3 py-2 border-bottom">
                 <span class="text-secondary">Стать</span>
-                <span class="fw-semibold">Жіноча</span>
+                <span class="fw-semibold" id="profileGender">—</span>
               </div>
 
               <div class="d-flex justify-content-between gap-3 py-2">
                 <span class="text-secondary">Дата народження</span>
-                <span class="fw-semibold">17.11.2005</span>
+                <span class="fw-semibold" id="profileBirthDate">—</span>
               </div>
 
               <hr class="my-4">
               <div class="d-flex justify-content-end">
-                <a class="btn btn-outline-danger fw-semibold" href="./login.html">
+                <button class="btn btn-outline-danger fw-semibold" id="logoutBtn" type="button">
                   Вийти
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -114,5 +113,14 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="./js/models/storage.model.js"></script>
+  <script src="./js/models/profile.model.js"></script>
+
+  <script src="./js/views/navbar.view.js"></script>
+  <script src="./js/views/profile.view.js"></script>
+
+  <script src="./js/controllers/profile.controller.js"></script>
+  <script src="./js/controllers/app.controller.js"></script>
 </body>
 </html>
