@@ -52,4 +52,4 @@ js/
     └── tracker.controller.js
 ```
 ## Посилання на звіт (Google Drive)
-- **URL:** https://docs.google.com/document/d/1l7rMoUR56us6Dq6eB4OO9P-FeeRB9JqY/edit?usp=sharing&ouid=112731429085870670049&rtpof=true&sd=true
+- **URL:** [https://docs.google.com/document/d/1l7rMoUR56us6Dq6eB4OO9P-FeeRB9JqY/edit?usp=sharing&ouid=112731429085870670049&rtpof=true&sd=true](https://1drv.ms/w/c/bad993da60a77062/IQBXKxLo-zKRTbBwZLBH-NjGAZvQ7w6HQCoHp6Zy8nSwiCQ?e=NaSmHO)
