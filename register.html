@@ -9,9 +9,8 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 
-<body class="bg-light d-flex flex-column min-vh-100">
+<body class="bg-light d-flex flex-column min-vh-100" data-page="register">
 
-  <!-- Верхнє меню навігації -->
   <nav class="navbar navbar-expand-lg header-light sticky-top">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2" href="./index.html">
@@ -19,78 +18,83 @@
         <span class="fw-bold text-dark">TimeFlow</span>
       </a>
 
-      <!-- Кнопка меню для телефонів -->
       <button class="navbar-toggler" type="button"
               data-bs-toggle="collapse" data-bs-target="#navbarNav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Меню">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- Посилання меню -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
           <li class="nav-item"><a class="nav-link text-dark" href="./about.html">Про додаток</a></li>
           <li class="nav-item"><a class="nav-link text-dark" href="./tracker.html">Трекер</a></li>
-          <li class="nav-item"><a class="nav-link text-dark" href="./profile.html">Профіль</a></li>
-          <li class="nav-item"><a class="nav-link text-dark" href="./login.html">Вхід</a></li>
 
-          <li class="nav-item ms-lg-2">
-            <a class="btn btn-dark fw-bold" href="./register.html" aria-current="page">Реєстрація</a>
+          <li class="nav-item auth-only" style="display: none;">
+            <a class="nav-link text-dark" href="./profile.html">Профіль</a>
+          </li>
+
+          <li class="nav-item guest-only">
+            <a class="nav-link text-dark" href="./login.html">Вхід</a>
+          </li>
+
+          <li class="nav-item ms-lg-2 guest-only">
+            <a class="btn btn-dark fw-bold" href="./register.html">Реєстрація</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Основне -->
   <main class="container py-5 flex-grow-1">
     <div class="row justify-content-center">
-      <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+      <div class="col-12 col-lg-7">
 
         <h1 class="h2 fw-bold mb-1">Реєстрація</h1>
-        <p class="text-secondary mb-4">Створіть акаунт TimeFlow.</p>
+        <p class="text-secondary mb-4">Створіть акаунт для роботи з TimeFlow.</p>
 
-        <div class="tf-panel">
+        <form id="registerForm" class="tf-panel">
           <div class="row g-3">
 
             <div class="col-12 col-md-6">
-              <label class="form-label fw-semibold">Ім’я</label>
-              <input class="form-control" type="text">
+              <label class="form-label fw-semibold" for="firstName">Ім’я</label>
+              <input id="firstName" class="form-control" type="text">
             </div>
 
             <div class="col-12 col-md-6">
-              <label class="form-label fw-semibold">Прізвище</label>
-              <input class="form-control" type="text">
+              <label class="form-label fw-semibold" for="lastName">Прізвище</label>
+              <input id="lastName" class="form-control" type="text">
             </div>
 
             <div class="col-12">
-              <label class="form-label fw-semibold">Email</label>
-              <input class="form-control" type="email" placeholder="name@gmail.com">
+              <label class="form-label fw-semibold" for="registerEmail">Email</label>
+              <input id="registerEmail" class="form-control" type="email" placeholder="name@gmail.com">
             </div>
 
             <div class="col-12">
-              <label class="form-label fw-semibold">Пароль</label>
-              <input class="form-control" type="password" placeholder="••••••••">
+              <label class="form-label fw-semibold" for="registerPassword">Пароль</label>
+              <input id="registerPassword" class="form-control" type="password" placeholder="••••••••">
             </div>
 
             <div class="col-12 col-md-6">
-              <label class="form-label fw-semibold">Стать</label>
-              <select class="form-select">
+              <label class="form-label fw-semibold" for="gender">Стать</label>
+              <select id="gender" class="form-select">
                 <option value="" selected>Оберіть</option>
-                <option>Жіноча</option>
-                <option>Чоловіча</option>
-                <option>Інше</option>
+                <option value="Жіноча">Жіноча</option>
+                <option value="Чоловіча">Чоловіча</option>
+                <option value="Інше">Інше</option>
               </select>
             </div>
 
             <div class="col-12 col-md-6">
-              <label class="form-label fw-semibold">Дата народження</label>
-              <input class="form-control" type="date">
+              <label class="form-label fw-semibold" for="birthDate">Дата народження</label>
+              <input id="birthDate" class="form-control" type="date">
             </div>
 
             <div class="col-12">
-              <button class="btn btn-dark w-100 fw-bold" type="button">Зареєструватися</button>
+              <button class="btn btn-dark w-100 fw-bold" type="submit">Зареєструватися</button>
             </div>
+
+            <div id="registerMessage" class="col-12"></div>
 
             <div class="col-12 text-center small text-secondary">
               Вже є акаунт?
@@ -98,7 +102,7 @@
             </div>
 
           </div>
-        </div>
+        </form>
 
       </div>
     </div>
@@ -112,5 +116,14 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="./js/models/storage.model.js"></script>
+  <script src="./js/models/auth.model.js"></script>
+
+  <script src="./js/views/navbar.view.js"></script>
+  <script src="./js/views/auth.view.js"></script>
+
+  <script src="./js/controllers/auth.controller.js"></script>
+  <script src="./js/controllers/app.controller.js"></script>
 </body>
 </html>
